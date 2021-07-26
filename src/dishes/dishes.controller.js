@@ -1,4 +1,3 @@
-const { resolve } = require('path');
 const path = require('path');
 
 // Use the existing dishes data
@@ -21,14 +20,6 @@ function dishExists(req, res, next) {
     status: 404,
     message: `Dish does not exist: ${dishId}`,
   });
-}
-
-function read(req, res, next) {
-  res.json({ data: res.locals.dish });
-}
-
-function list(req, res, next) {
-  res.json({ data: dishes });
 }
 
 function hasName(req, res, next) {
@@ -109,6 +100,10 @@ function create(req, res, next) {
   res.status(201).json({ data: newDish });
 }
 
+function read(req, res, next) {
+  res.json({ data: res.locals.dish });
+}
+
 function update(req, res, next) {
   const originalId = req.params.dishId;
   const {
@@ -122,6 +117,10 @@ function update(req, res, next) {
     image_url,
   };
   res.json({ data: updatedDish });
+}
+
+function list(req, res, next) {
+  res.json({ data: dishes });
 }
 
 module.exports = {
