@@ -10,4 +10,5 @@ The goal of the project is to build out a RESTful API that can function independ
 ## Tools and Tech
 * JavaScript
 * Express
+* Node.js
 * Nodemon
